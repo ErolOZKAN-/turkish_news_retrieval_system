@@ -1,6 +1,5 @@
 import json
 import os
-import pickle
 from datetime import datetime
 
 import numpy as np
@@ -8,6 +7,7 @@ import scipy
 from bson import json_util
 from nltk.corpus import stopwords
 from nltk.stem.snowball import SnowballStemmer
+from snowballstemmer import TurkishStemmer
 
 from utils import get_filtered_article_text, print_model_into_pickle_file, print_model_into_file
 
@@ -16,6 +16,7 @@ class Indexer:
     def __init__(self):
         self.stop = stopwords.words('turkish')
         self.stemmer = SnowballStemmer('english')  # turkish is not supported.
+        self.turkish_stemmer = TurkishStemmer()
 
         self.article_list = []  # List of articles
         self.terms_by_article = []  # Terms by article

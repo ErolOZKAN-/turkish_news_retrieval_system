@@ -3,6 +3,7 @@ import pickle
 import nltk
 import numpy as np
 from nltk.stem.snowball import SnowballStemmer
+from snowballstemmer import TurkishStemmer
 
 from utils import remove_duplicated_articles
 
@@ -12,6 +13,7 @@ class ModelQuery:
 
     def __init__(self, modelfile):
         self.stammer = SnowballStemmer('english')  # turkish is not supported.
+        self.turkish_stemmer = TurkishStemmer()
         self.indexed_articles = pickle.load(open(modelfile, 'rb'))
 
     def tokenize_query(self, query):

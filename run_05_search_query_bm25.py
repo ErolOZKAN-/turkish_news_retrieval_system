@@ -3,6 +3,7 @@ import pickle
 
 import nltk
 from nltk.stem.snowball import SnowballStemmer
+from snowballstemmer import TurkishStemmer
 
 from utils_BM25 import get_query_result
 
@@ -12,6 +13,7 @@ class ModelQueryBM25:
 
     def __init__(self, modelfile):
         self.stammer = SnowballStemmer('english')  # turkish is not supported.
+        self.turkish_stemmer = TurkishStemmer()
         self.model_data = pickle.load(open(modelfile, 'rb'))
         self.data_dict = {x['article_id']: x for x in self.model_data['article_list']}
 
@@ -30,7 +32,6 @@ class ModelQueryBM25:
         for elem in sorted_list:
             return_list.append([elem[1], self.data_dict[elem[0]]])
         return return_list
-
 
 # modelQuery = ModelQueryBM25(modelfile="model_files/output_bm25.data")
 # print(modelQuery.search_for_query("gıda"))

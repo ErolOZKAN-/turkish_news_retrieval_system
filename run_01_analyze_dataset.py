@@ -4,6 +4,8 @@ import os
 from bson import json_util
 from nltk.corpus import stopwords
 from nltk.stem.snowball import SnowballStemmer
+from snowballstemmer import TurkishStemmer
+
 from utils import get_filtered_query_terms, get_filtered_article_text, print_model_into_file
 
 
@@ -11,6 +13,7 @@ class DatasetAnalyzer:
     def __init__(self):
         self.stop = stopwords.words('turkish')
         self.stemmer = SnowballStemmer('english')  # turkish is not supported.
+        self.turkish_stemmer = TurkishStemmer()
 
         self.json_files = {}
         self.statistics = {}

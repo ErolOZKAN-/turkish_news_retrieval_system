@@ -5,6 +5,7 @@ from datetime import datetime
 from bson import json_util
 from nltk.corpus import stopwords
 from nltk.stem.snowball import SnowballStemmer
+from snowballstemmer import TurkishStemmer
 
 from utils import print_model_into_pickle_file, get_filtered_article_text, print_model_into_file
 from utils_BM25 import InvertedIndex, DocumentLengthTable
@@ -14,6 +15,7 @@ class Evaluator:
     def __init__(self):
         self.stop = stopwords.words('turkish')
         self.stemmer = SnowballStemmer('english')  # turkish is not supported.
+        self.turkish_stemmer = TurkishStemmer()
 
         self.article_list = []  # List of articles
         self.inverted_index = InvertedIndex()
