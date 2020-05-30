@@ -8,12 +8,14 @@ from bson import json_util
 def get_filtered_query_terms(stemmer, stopwords, article):
     filtered_terms = nltk.word_tokenize(article['title'])
     filtered_terms = [stemmer.stem(x) for x in filtered_terms if len(x) > 2 and x not in stopwords]
+    # filtered_terms = [stemmer.stemWord(x) for x in filtered_terms if len(x) > 2 and x not in stopwords]
     return filtered_terms
 
 
 def get_filtered_article_text(stemmer, stopwords, article):
     text_filtered_terms = nltk.word_tokenize(article['text'])
     text_filtered_terms = [stemmer.stem(x) for x in text_filtered_terms if len(x) > 2 and x not in stopwords]
+    # text_filtered_terms = [stemmer.stemWord(x) for x in text_filtered_terms if len(x) > 2 and x not in stopwords]
     return text_filtered_terms
 
 
