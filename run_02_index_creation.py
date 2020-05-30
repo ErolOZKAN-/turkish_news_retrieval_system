@@ -16,7 +16,7 @@ class Indexer:
     def __init__(self):
         self.stop = stopwords.words('turkish')
         self.stemmer = SnowballStemmer('english')  # turkish is not supported.
-        self.turkish_stemmer = TurkishStemmer()
+        # self.stemmer = TurkishStemmer()
 
         self.article_list = []  # List of articles
         self.terms_by_article = []  # Terms by article

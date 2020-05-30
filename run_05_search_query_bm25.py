@@ -13,7 +13,7 @@ class ModelQueryBM25:
 
     def __init__(self, modelfile):
         self.stammer = SnowballStemmer('english')  # turkish is not supported.
-        self.turkish_stemmer = TurkishStemmer()
+        # self.stemmer = TurkishStemmer()
         self.model_data = pickle.load(open(modelfile, 'rb'))
         self.data_dict = {x['article_id']: x for x in self.model_data['article_list']}
 

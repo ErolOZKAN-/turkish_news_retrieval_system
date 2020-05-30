@@ -13,7 +13,7 @@ class ModelQuery:
 
     def __init__(self, modelfile):
         self.stammer = SnowballStemmer('english')  # turkish is not supported.
-        self.turkish_stemmer = TurkishStemmer()
+        # self.stemmer = TurkishStemmer()
         self.indexed_articles = pickle.load(open(modelfile, 'rb'))
 
     def tokenize_query(self, query):

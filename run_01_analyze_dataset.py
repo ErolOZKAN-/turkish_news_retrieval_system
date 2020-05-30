@@ -13,7 +13,7 @@ class DatasetAnalyzer:
     def __init__(self):
         self.stop = stopwords.words('turkish')
         self.stemmer = SnowballStemmer('english')  # turkish is not supported.
-        self.turkish_stemmer = TurkishStemmer()
+        # self.stemmer = TurkishStemmer()
 
         self.json_files = {}
         self.statistics = {}
